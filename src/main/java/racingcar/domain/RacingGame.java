@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RacingGame {
 
     private final String participations;
@@ -14,6 +17,7 @@ public class RacingGame {
 
     public void run() {
         int times = mapToInteger(count);
+        List<Car> carList = createCar(times,extractionParticipation(participations));
 
 
     }
@@ -24,6 +28,15 @@ public class RacingGame {
 
     private int mapToInteger(String count){
         return Integer.parseInt(count);
+    }
+
+    private List<Car> createCar(int num, String[] participationList){
+        List<Car> carList = new ArrayList<>();
+
+        for(int i = 0;i<num;i++){
+            carList.add(new Car(participationList[i]));
+        }
+        return carList;
     }
 
 }

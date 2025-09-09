@@ -46,12 +46,43 @@ public class RacingGame {
                 .map(Car::new)
                 .toList();
     }
+
     public void runSingleRound() {
         for (Car car : carList) {
             car.moveForward();
         }
     }
-    public void getWinner() {
 
+    public String getWinner(){
+        int maxTravel = getMaxTravel();
+        List<String> winnerList = getWinnerName(maxTravel);
+        StringBuilder winners = new StringBuilder();
+        if(winnerList.size()>1) {
+
+            for (int i = 0; i < winnerList.size() - 1; i++) {
+                winners.append(winnerList.get(i))
+                        .append(", ");
+
+            }
+            winners.append(winnerList.getLast());
+            return winners.toString();
+        }
+
+        return winnerList.getLast();
     }
+
+    public int getMaxTravel(){
+        return carList.stream()
+                .mapToInt(Car::getTraveled)
+                .max()
+                .orElseThrow();
+    }
+
+    public List<String> getWinnerName(int maxTravel){
+        return carList.stream()
+                .filter(c->c.getTraveled()==maxTravel)
+                .map(Car::getName)
+                .toList();
+    }
+
 }

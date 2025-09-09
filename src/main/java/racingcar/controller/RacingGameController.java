@@ -19,6 +19,7 @@ public class RacingGameController {
         StringBuilder progressDetail = racingGame.run();
         outputView.printGameResultMessage();
         outputView.printGameProgress(progressDetail);
-        racingGame.getWinner();
+        String gameWinners = racingGame.getWinner();
+        outputView.printGameWinner(gameWinners);
     }
 }

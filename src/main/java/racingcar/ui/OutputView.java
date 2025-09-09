@@ -2,6 +2,7 @@ package racingcar.ui;
 
 import static racingcar.global.constant.GameMessage.GAME_RESULT_MESSAGE;
 import static racingcar.global.constant.GameMessage.GAME_START_MESSAGE;
+import static racingcar.global.constant.GameMessage.GAME_WINNER_MESSAGE;
 
 public class OutputView {
     public void printGameStartMessage(){
@@ -16,6 +17,6 @@ public class OutputView {
         System.out.println(progressDetail);
     }
     public void printGameWinner(String winners){
-        System.out.println();
+        System.out.println(GAME_WINNER_MESSAGE+winners);
     }
 }

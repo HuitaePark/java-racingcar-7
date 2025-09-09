@@ -14,6 +14,11 @@ public class RacingGameController {
         String count = inputHandler.inputText();
 
         RacingGame racingGame = new RacingGame(participations,count);
-        racingGame.run();
+
+
+        StringBuilder progressDetail = racingGame.run();
+        outputView.printGameResultMessage();
+        outputView.printGameProgress(progressDetail);
+        racingGame.getWinner();
     }
 }

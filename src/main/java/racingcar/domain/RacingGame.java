@@ -26,7 +26,8 @@ public class RacingGame {
                 runSingleRound();
                 progress.append(car.getName())
                         .append(" : ")
-                        .append("-".repeat(car.getTraveled()));
+                        .append("-".repeat(car.getTraveled()))
+                        .append("\n");
             }
             progress.append("\n");
         }

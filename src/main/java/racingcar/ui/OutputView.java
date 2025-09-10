@@ -14,9 +14,9 @@ public class OutputView {
     }
 
     public void printGameProgress(StringBuilder progressDetail){
-        System.out.println(progressDetail);
+        System.out.print(progressDetail);
     }
     public void printGameWinner(String winners){
-        System.out.println(GAME_WINNER_MESSAGE+winners);
+        System.out.print(GAME_WINNER_MESSAGE+winners);
     }
 }

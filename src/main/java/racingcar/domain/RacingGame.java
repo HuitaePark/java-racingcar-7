@@ -6,13 +6,11 @@ import java.util.List;
 
 public class RacingGame {
 
-    private final String participations;
     private final int times;
     private List<Car> carList = new ArrayList<>();
     private String COMMA = ",";
 
     public RacingGame(String participations,String count) {
-        this.participations = participations;
         this.times = mapToInteger(count);
         carList = createCar(extractionParticipation(participations));
     }

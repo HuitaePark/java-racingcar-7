@@ -8,7 +8,7 @@ public class RacingGame {
 
     private final int times;
     private List<Car> carList = new ArrayList<>();
-    private String COMMA = ",";
+    private final String COMMA = ",";
 
     public RacingGame(String participations,String count) {
         this.times = mapToInteger(count);

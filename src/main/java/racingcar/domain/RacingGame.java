@@ -22,8 +22,8 @@ public class RacingGame {
         StringBuilder progress = new StringBuilder();
 
         for(int i = 0;i<times;i++){
+            runSingleRound();
             for(Car car : carList){
-                runSingleRound();
                 progress.append(car.getName())
                         .append(" : ")
                         .append("-".repeat(car.getTraveled()))

@@ -2,10 +2,15 @@ package racingcar;
 
 import racingcar.controller.RacingGameController;
 import racingcar.domain.RacingGame;
+import racingcar.ui.InputHandler;
+import racingcar.ui.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        RacingGameController controller = new RacingGameController();
+        InputHandler inputHandler = new InputHandler();
+        OutputView outputView = new OutputView();
+
+        RacingGameController controller = new RacingGameController(inputHandler,outputView);
         controller.gameStart();
     }
 }

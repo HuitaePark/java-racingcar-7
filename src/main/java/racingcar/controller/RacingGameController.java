@@ -6,10 +6,16 @@ import racingcar.ui.InputHandler;
 import racingcar.ui.OutputView;
 
 public class RacingGameController {
-    public void gameStart(){
-        InputHandler inputHandler = new InputHandler();
-        OutputView outputView = new OutputView();
 
+    private final InputHandler inputHandler;
+    private final OutputView outputView;
+
+    public RacingGameController(InputHandler inputHandler, OutputView outputView) {
+        this.inputHandler = inputHandler;
+        this.outputView = outputView;
+    }
+
+    public void gameStart(){
         String participations = inputHandler.inputText();
         outputView.printGameStartMessage();
         String count = inputHandler.inputText();

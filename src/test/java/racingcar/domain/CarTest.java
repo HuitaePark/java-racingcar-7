@@ -27,4 +27,14 @@ public class CarTest {
                 .hasMessageContaining("이름의 제한 길이 (5)글자를 초과하였습니다.");
     }
 
+    @DisplayName("글자가 숫자일시 에러 테스트")
+    @Test
+    public void validate_Name_Number_Test(){
+        assertThatThrownBy(()-> {
+            Car car = new Car("1");
+        })
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름에 숫자가 포함되어 있습니다.");
+    }
+
 }

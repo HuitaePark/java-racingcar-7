@@ -7,16 +7,9 @@ public class Winner {
     public String getWinner(List<Car> carList){
         int maxTravel = getMaxTravel(carList);
         List<String> winnerList = getWinnerName(carList,maxTravel);
-        StringBuilder winners = new StringBuilder();
-        if(winnerList.size()>1) {
 
-            for (int i = 0; i < winnerList.size() - 1; i++) {
-                winners.append(winnerList.get(i))
-                        .append(", ");
-
-            }
-            winners.append(winnerList.getLast());
-            return winners.toString();
+        if(isSeveralPeople(winnerList)) {
+            return getWinnerNames(winnerList);
         }
 
         return winnerList.getLast();
@@ -36,4 +29,18 @@ public class Winner {
                 .toList();
     }
 
+    private boolean isSeveralPeople(List<String> winnerList){
+        return winnerList.size()>1;
+    }
+
+    private String getWinnerNames(List<String> winnerList){
+        StringBuilder winners = new StringBuilder();
+        for (int i = 0; i < winnerList.size() - 1; i++) {
+            winners.append(winnerList.get(i))
+                    .append(", ");
+
+        }
+        winners.append(winnerList.getLast());
+        return winners.toString();
+    }
 }

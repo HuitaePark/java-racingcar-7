@@ -15,18 +15,40 @@ public class RacingGameController {
         this.outputView = outputView;
     }
 
-    public void gameStart(){
+    public void gameStart() {
+        RacingGame racingGame = setupGame();
+
+        displayRacingGameProgress(racingGame);
+
+        displayRacingGameWinner(racingGame);
+    }
+
+    private RacingGame setupGame(){
         String participations = inputHandler.inputText();
         outputView.printGameStartMessage();
         String count = inputHandler.inputText();
 
-        RacingGame racingGame = RacingGameCreator.createGame(participations,count);
+        return RacingGameCreator.createGame(participations, count);
+    }
 
-        StringBuilder progressDetail = racingGame.run();
+    private void displayRacingGameProgress(RacingGame racingGame){
+        getGameProgress(racingGame.run());
+    }
+
+    private void getGameProgress(StringBuilder progressDetail){
         outputView.printGameResultMessage();
         outputView.printGameProgress(progressDetail);
+    }
 
-        String gameWinners = racingGame.selectWinner();
+    private void displayRacingGameWinner(RacingGame racingGame){
+        String gameWinners = getGameWinner(racingGame);
         outputView.printGameWinner(gameWinners);
     }
+
+    private String getGameWinner(RacingGame racingGame) {
+        return racingGame.selectWinner();
+    }
+
 }
+
+

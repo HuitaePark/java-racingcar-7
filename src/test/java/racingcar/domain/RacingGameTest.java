@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.global.util.RacingGameCreator;
 
 public class RacingGameTest {
 
@@ -10,7 +11,6 @@ public class RacingGameTest {
     @ParameterizedTest
     @ValueSource(strings = { "pobi,woni,jun"})
     public void inputTest(String input){
-        RacingGame racingGame = new RacingGame(input,"5");
-
+        RacingGame racingGame = RacingGameCreator.createGame(input,"5");
     }
 }

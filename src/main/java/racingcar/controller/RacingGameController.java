@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.RacingGame;
+import racingcar.global.util.RacingGameCreator;
 import racingcar.ui.InputHandler;
 import racingcar.ui.OutputView;
 
@@ -13,13 +14,13 @@ public class RacingGameController {
         outputView.printGameStartMessage();
         String count = inputHandler.inputText();
 
-        RacingGame racingGame = new RacingGame(participations,count);
+        RacingGame racingGame = RacingGameCreator.createGame(participations,count);
 
 
         StringBuilder progressDetail = racingGame.run();
         outputView.printGameResultMessage();
         outputView.printGameProgress(progressDetail);
-        String gameWinners = racingGame.getWinner();
+        String gameWinners = racingGame.selectWinner();
         outputView.printGameWinner(gameWinners);
     }
 }

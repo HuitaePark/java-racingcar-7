@@ -6,10 +6,11 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class RacingGameTest {
 
-    @DisplayName("이름 분리 테스트")
+    @DisplayName("승리자 테스트")
     @ParameterizedTest
     @ValueSource(strings = { "pobi,woni,jun"})
     public void inputTest(String input){
+        RacingGame racingGame = new RacingGame(input,"5");
 
     }
 }

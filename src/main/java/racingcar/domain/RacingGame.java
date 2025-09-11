@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -48,6 +49,12 @@ public class RacingGame {
 
     public void runSingleRound() {
         for (Car car : carList) {
+            tryMove(car);
+        }
+    }
+
+    private void tryMove(Car car){
+        if(isMoveable(pickRandomNum())) {
             car.moveForward();
         }
     }
@@ -84,4 +91,11 @@ public class RacingGame {
                 .toList();
     }
 
+    private boolean isMoveable(int randomCount){
+        return randomCount >= 4;
+    }
+
+    private int pickRandomNum(){
+        return Randoms.pickNumberInRange(0,9);
+    }
 }

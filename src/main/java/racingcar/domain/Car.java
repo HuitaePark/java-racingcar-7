@@ -12,17 +12,7 @@ public class Car {
     }
 
     public void moveForward(){
-        if(isMoveable(pickRandomNum())){
             position.increaseValue();
-        }
-    }
-
-    private int pickRandomNum(){
-        return Randoms.pickNumberInRange(0,9);
-    }
-
-    private boolean isMoveable(int randomCount){
-        return randomCount >= 4;
     }
 
     public int getTraveled() {

@@ -70,7 +70,7 @@ public class RacingGame {
         return winnerList.getLast();
     }
 
-    public int getMaxTravel(){
+    private int getMaxTravel(){
         return carList.stream()
                 .mapToInt(Car::getTraveled)
                 .max()

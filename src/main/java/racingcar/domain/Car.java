@@ -4,15 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private int traveled = 0;
+    private final Position position;
 
     public Car(String name) {
         this.name = name;
+        this.position = new Position();
     }
 
     public void moveForward(){
         if(isMoveable(pickRandomNum())){
-            traveled++;
+            position.increaseValue();
         }
     }
 
@@ -25,7 +26,7 @@ public class Car {
     }
 
     public int getTraveled() {
-        return traveled;
+        return position.getValue();
     }
 
     public String getName() {

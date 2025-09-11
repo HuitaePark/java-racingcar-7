@@ -77,7 +77,7 @@ public class RacingGame {
                 .orElseThrow();
     }
 
-    public List<String> getWinnerName(int maxTravel){
+    private List<String> getWinnerName(int maxTravel){
         return carList.stream()
                 .filter(c->c.getTraveled()==maxTravel)
                 .map(Car::getName)

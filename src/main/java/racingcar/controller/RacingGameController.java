@@ -16,10 +16,10 @@ public class RacingGameController {
 
         RacingGame racingGame = RacingGameCreator.createGame(participations,count);
 
-
         StringBuilder progressDetail = racingGame.run();
         outputView.printGameResultMessage();
         outputView.printGameProgress(progressDetail);
+
         String gameWinners = racingGame.selectWinner();
         outputView.printGameWinner(gameWinners);
     }

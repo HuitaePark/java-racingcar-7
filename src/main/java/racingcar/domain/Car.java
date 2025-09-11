@@ -8,7 +8,7 @@ public class Car {
     private final int lengthLimit = 5;
 
     public Car(String name) {
-        validateName(name);
+        validateNameLength(name);
         this.name = name;
         this.position = new Position();
     }
@@ -25,7 +25,7 @@ public class Car {
         return name;
     }
 
-    private void validateName(String name){
+    private void validateNameLength(String name){
         if(name.length()>lengthLimit){
             throw new IllegalArgumentException(NAME_LENGTH_LIMIT_OVER);
         }

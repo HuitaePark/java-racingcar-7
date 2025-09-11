@@ -10,12 +10,7 @@ public class Race {
 
         for(int i = 0;i<times;i++){
             runSingleRound(carList);
-            for(Car car : carList){
-                progress.append(car.getName())
-                        .append(" : ")
-                        .append("-".repeat(car.getTraveled()))
-                        .append("\n");
-            }
+            updateProgress(carList,progress);
             progress.append("\n");
         }
         return progress;
@@ -24,6 +19,14 @@ public class Race {
     public void runSingleRound(List<Car> carList) {
         for (Car car : carList) {
             tryMove(car);
+        }
+    }
+    private void updateProgress(List<Car> carList,StringBuilder progress){
+        for(Car car : carList){
+            progress.append(car.getName())
+                    .append(" : ")
+                    .append("-".repeat(car.getTraveled()))
+                    .append("\n");
         }
     }
 

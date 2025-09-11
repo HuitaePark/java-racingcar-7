@@ -25,10 +25,12 @@ public class Car {
     public String getName() {
         return name;
     }
+
     private void validate(String name){
         validateNameLength(name);
         validateNameNumber(name);
     }
+
     private void validateNameLength(String name){
         if(name.length()>lengthLimit){
             throw new IllegalArgumentException(NAME_LENGTH_LIMIT_OVER);

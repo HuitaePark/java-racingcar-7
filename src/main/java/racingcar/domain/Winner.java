@@ -35,12 +35,14 @@ public class Winner {
 
     private String getWinnerNames(List<String> winnerList){
         StringBuilder winners = new StringBuilder();
+
         for (int i = 0; i < winnerList.size() - 1; i++) {
             winners.append(winnerList.get(i))
                     .append(", ");
 
         }
         winners.append(winnerList.getLast());
+
         return winners.toString();
     }
 }

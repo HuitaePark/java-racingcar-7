@@ -18,19 +18,8 @@ public class RacingGame {
 
 
     public StringBuilder run() {
-        StringBuilder progress = new StringBuilder();
-
-        for(int i = 0;i<times;i++){
-            runSingleRound();
-            for(Car car : carList){
-                progress.append(car.getName())
-                        .append(" : ")
-                        .append("-".repeat(car.getTraveled()))
-                        .append("\n");
-            }
-            progress.append("\n");
-        }
-        return progress;
+        Race race = new Race();
+        return race.raceResult(times,carList);
     }
 
     private String[] extractionParticipation(String participations){
@@ -47,17 +36,6 @@ public class RacingGame {
                 .toList();
     }
 
-    public void runSingleRound() {
-        for (Car car : carList) {
-            tryMove(car);
-        }
-    }
-
-    private void tryMove(Car car){
-        if(isMoveable(pickRandomNum())) {
-            car.moveForward();
-        }
-    }
 
     public String getWinner(){
         int maxTravel = getMaxTravel();
@@ -89,13 +67,5 @@ public class RacingGame {
                 .filter(c->c.getTraveled()==maxTravel)
                 .map(Car::getName)
                 .toList();
-    }
-
-    private boolean isMoveable(int randomCount){
-        return randomCount >= 4;
-    }
-
-    private int pickRandomNum(){
-        return Randoms.pickNumberInRange(0,9);
     }
 }

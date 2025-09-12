@@ -19,7 +19,6 @@ public class RacingGameController {
         RacingGame racingGame = setupGame();
 
         displayRacingGameProgress(racingGame);
-
         displayRacingGameWinner(racingGame);
     }
 

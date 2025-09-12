@@ -1,7 +1,6 @@
 package racingcar;
 
 import racingcar.controller.RacingGameController;
-import racingcar.domain.RacingGame;
 import racingcar.ui.InputHandler;
 import racingcar.ui.OutputView;
 

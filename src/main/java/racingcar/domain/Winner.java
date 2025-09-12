@@ -6,16 +6,12 @@ import java.util.List;
 
 public class Winner {
 
-    public String getWinner(List<Car> carList){
+    public List<String> findWinner(List<Car> carList){
         int maxTravel = getMaxTravel(carList);
-        List<String> winnerList = getWinnerName(carList,maxTravel);
-
-
-        if(isSeveralPeople(winnerList)) {
-            return getWinnerNames(winnerList);
-        }
-
-        return winnerList.getLast();
+        return carList.stream()
+                .filter(c->c.getTraveled()==maxTravel)
+                .map(Car::getName)
+                .toList();
     }
 
     private int getMaxTravel(List<Car> carList){
@@ -30,26 +26,5 @@ public class Winner {
                 .filter(c->c.getTraveled()==maxTravel)
                 .map(Car::getName)
                 .toList();
-    }
-
-    private boolean isSeveralPeople(List<String> winnerList){
-        return winnerList.size()>1;
-    }
-
-    private String getWinnerNames(List<String> winnerList){
-        StringBuilder winners = new StringBuilder();
-
-        updateWinnerName(winners,winnerList);
-
-        winners.append(winnerList.getLast());
-        return winners.toString();
-    }
-
-    private void updateWinnerName(StringBuilder winners,List<String> winnerList){
-        for (int i = 0; i < winnerList.size() - 1; i++) {
-            winners.append(winnerList.get(i))
-                    .append(", ");
-
-        }
     }
 }

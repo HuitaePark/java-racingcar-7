@@ -14,7 +14,7 @@ public class WinnerTest {
         assertThatThrownBy(()-> {
             Winner winner = new Winner();
             List<Car> carList = new ArrayList<>();
-            winner.getWinner(carList);
+            winner.findWinner(carList);
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("우승자의 수는 한명 이상입니다.");

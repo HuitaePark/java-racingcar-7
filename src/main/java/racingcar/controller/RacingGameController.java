@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.domain.RacingGame;
 import racingcar.global.util.RacingGameCreator;
 import racingcar.ui.InputHandler;
@@ -40,12 +41,8 @@ public class RacingGameController {
     }
 
     private void displayRacingGameWinner(RacingGame racingGame){
-        String gameWinners = getGameWinner(racingGame);
-        outputView.printGameWinner(gameWinners);
-    }
-
-    private String getGameWinner(RacingGame racingGame) {
-        return racingGame.selectWinner();
+        List<String> winnerNames = racingGame.selectWinner();
+        outputView.printGameWinner(winnerNames);
     }
 
 }

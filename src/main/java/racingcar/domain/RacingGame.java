@@ -29,8 +29,8 @@ public class RacingGame {
         return race.raceResult(times,carList);
     }
 
-    public String selectWinner(){
-        return winner.getWinner(carList);
+    public List<String> selectWinner(){
+        return winner.findWinner(carList);
     }
 
     private List<Car> createCar(String[] participationList){

@@ -4,6 +4,8 @@ import static racingcar.global.constant.GameMessage.GAME_RESULT_MESSAGE;
 import static racingcar.global.constant.GameMessage.GAME_START_MESSAGE;
 import static racingcar.global.constant.GameMessage.GAME_WINNER_MESSAGE;
 
+import java.util.List;
+
 public class OutputView {
     public void printGameStartMessage(){
         System.out.println(GAME_START_MESSAGE);
@@ -16,7 +18,10 @@ public class OutputView {
     public void printGameProgress(StringBuilder progressDetail){
         System.out.print(progressDetail);
     }
-    public void printGameWinner(String winners){
-        System.out.print(GAME_WINNER_MESSAGE+winners);
+
+    public void printGameWinner(List<String> winnerNames) {
+        String winnerText = String.join(", ", winnerNames);
+        System.out.println(GAME_WINNER_MESSAGE+winnerText);
     }
+
 }

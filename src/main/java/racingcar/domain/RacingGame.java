@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.global.exception.ErrorMessage.COUNT_CONTAINS_STRING;
+import static racingcar.global.exception.ErrorMessage.PARTICIPATIONS_NOT_CONTAINS_COMMA;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +17,7 @@ public class RacingGame {
     private final String COMMA = ",";
 
     public RacingGame(String participations,String count,Race race, Winner winner) {
+        validateComma(participations);
         validateCount(count);
         this.times = mapToInteger(count);
         this.carList = createCar(extractionParticipation(participations));
@@ -48,6 +50,12 @@ public class RacingGame {
     private void validateCount(String count){
         if(!count.matches("\\d+")){
             throw new IllegalArgumentException(COUNT_CONTAINS_STRING);
+        }
+    }
+
+    private void validateComma(String participations){
+        if(participations.contains(COMMA)){
+            throw new IllegalArgumentException(PARTICIPATIONS_NOT_CONTAINS_COMMA);
         }
     }
 }

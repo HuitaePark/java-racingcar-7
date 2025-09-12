@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.global.exception.ErrorMessage.COUNT_CONTAINS_STRING;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +16,7 @@ public class RacingGame {
     private final String COMMA = ",";
 
     public RacingGame(String participations,String count,Race race, Winner winner) {
+        validateCount(count);
         this.times = mapToInteger(count);
         this.carList = createCar(extractionParticipation(participations));
         this.race = race;
@@ -43,4 +45,9 @@ public class RacingGame {
         return Integer.parseInt(count);
     }
 
+    private void validateCount(String count){
+        if(!count.matches("\\d+")){
+            throw new IllegalArgumentException(COUNT_CONTAINS_STRING);
+        }
+    }
 }

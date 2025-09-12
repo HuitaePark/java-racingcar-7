@@ -54,7 +54,7 @@ public class RacingGame {
     }
 
     private void validateComma(String participations){
-        if(participations.contains(COMMA)){
+        if(!participations.contains(COMMA)){
             throw new IllegalArgumentException(PARTICIPATIONS_NOT_CONTAINS_COMMA);
         }
     }

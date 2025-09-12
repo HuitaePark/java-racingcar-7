@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.global.exception.ErrorMessage.CAR_SIZE_ALONE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
@@ -7,6 +9,7 @@ public class Race {
 
     public StringBuilder raceResult(int times,List<Car> carList) {
         StringBuilder progress = new StringBuilder();
+        validateCarListNumber(carList);
 
         for(int i = 0;i<times;i++){
             runSingleRound(carList);
@@ -44,4 +47,9 @@ public class Race {
         return Randoms.pickNumberInRange(0,9);
     }
 
+    private void validateCarListNumber(List<Car> carList) {
+        if(carList.size()<=1){
+            throw new IllegalArgumentException(CAR_SIZE_ALONE);
+        }
+    }
 }

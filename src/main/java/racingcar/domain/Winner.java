@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.global.exception.ErrorMessage.WINNER_SIZE_ZERO;
+
 import java.util.List;
 
 public class Winner {
@@ -7,6 +9,7 @@ public class Winner {
     public String getWinner(List<Car> carList){
         int maxTravel = getMaxTravel(carList);
         List<String> winnerList = getWinnerName(carList,maxTravel);
+        validateWinnerNumber(winnerList);
 
         if(isSeveralPeople(winnerList)) {
             return getWinnerNames(winnerList);
@@ -47,6 +50,12 @@ public class Winner {
             winners.append(winnerList.get(i))
                     .append(", ");
 
+        }
+    }
+
+    private void validateWinnerNumber(List<String> winnerList) {
+        if(winnerList.size()<=0){
+            throw new IllegalArgumentException(WINNER_SIZE_ZERO);
         }
     }
 }

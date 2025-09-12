@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Race {
+    private final int PROCEEDING = 4;
 
     public StringBuilder raceResult(int times,List<Car> carList) {
         StringBuilder progress = new StringBuilder();
@@ -40,7 +41,7 @@ public class Race {
     }
 
     private boolean isMoveable(int randomCount){
-        return randomCount >= 4;
+        return randomCount >= PROCEEDING;
     }
 
     private int pickRandomNum(){

@@ -9,7 +9,7 @@ public class Winner {
     public String getWinner(List<Car> carList){
         int maxTravel = getMaxTravel(carList);
         List<String> winnerList = getWinnerName(carList,maxTravel);
-        validateWinnerNumber(winnerList);
+
 
         if(isSeveralPeople(winnerList)) {
             return getWinnerNames(winnerList);
@@ -22,7 +22,7 @@ public class Winner {
         return carList.stream()
                 .mapToInt(Car::getTraveled)
                 .max()
-                .orElseThrow();
+                .orElseThrow(()->new IllegalArgumentException(WINNER_SIZE_ZERO));
     }
 
     private List<String> getWinnerName(List<Car> carList,int maxTravel){
@@ -50,12 +50,6 @@ public class Winner {
             winners.append(winnerList.get(i))
                     .append(", ");
 
-        }
-    }
-
-    private void validateWinnerNumber(List<String> winnerList) {
-        if(winnerList.size()<=0){
-            throw new IllegalArgumentException(WINNER_SIZE_ZERO);
         }
     }
 }

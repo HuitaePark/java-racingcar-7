@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.global.exception.ErrorMessage.CAR_SIZE_ALONE;
 import static racingcar.global.exception.ErrorMessage.COUNT_CONTAINS_STRING;
 import static racingcar.global.exception.ErrorMessage.PARTICIPATIONS_NOT_CONTAINS_COMMA;
 
@@ -34,6 +35,7 @@ public class RacingGame {
     }
 
     private List<Car> createCar(String[] participationList){
+        validateParticipationListNumber(participationList);
         return Arrays.stream(participationList)
                 .map(Car::new)
                 .toList();
@@ -45,6 +47,18 @@ public class RacingGame {
 
     private int mapToInteger(String count){
         return Integer.parseInt(count);
+    }
+
+    private StringBuilder runRaceForGivenRounds(){
+        StringBuilder progress = new StringBuilder();
+
+        for (int i = 0; i < times; i++) {
+            race.runSingleRound(carList);
+            race.updateProgress(carList, progress);
+            progress.append("\n");
+        }
+
+        return progress;
     }
 
     private void validateCount(String count){
@@ -59,15 +73,9 @@ public class RacingGame {
         }
     }
 
-    private StringBuilder runRaceForGivenRounds(){
-        StringBuilder progress = new StringBuilder();
-
-        for (int i = 0; i < times; i++) {
-            race.runSingleRound(carList);
-            race.updateProgress(carList, progress);
-            progress.append("\n");
+    private void validateParticipationListNumber(String[] participationList){
+        if(participationList.length<1){
+            throw new IllegalArgumentException(CAR_SIZE_ALONE);
         }
-
-        return progress;
     }
 }

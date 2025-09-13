@@ -15,7 +15,7 @@ public class RacingGameTest {
     @ValueSource(strings = { "pobi,woni,jun"})
     public void game_process_test(String input){
         RacingGame racingGame = RacingGameCreator.createGame(input,"5");
-        StringBuilder run = racingGame.run();
+        StringBuilder run = racingGame.gameStart();
 
         assertThat(run)
                 .contains("pobi :")

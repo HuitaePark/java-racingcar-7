@@ -25,8 +25,8 @@ public class RacingGame {
         this.winner = winner;
     }
 
-    public StringBuilder run() {
-        return race.getRaceResult(times,carList);
+    public StringBuilder gameStart() {
+        return runRaceForGivenRounds();
     }
 
     public List<String> selectWinner(){
@@ -57,5 +57,17 @@ public class RacingGame {
         if(!participations.contains(COMMA)){
             throw new IllegalArgumentException(PARTICIPATIONS_NOT_CONTAINS_COMMA);
         }
+    }
+
+    private StringBuilder runRaceForGivenRounds(){
+        StringBuilder progress = new StringBuilder();
+
+        for (int i = 0; i < times; i++) {
+            race.runSingleRound(carList);
+            race.updateProgress(carList, progress);
+            progress.append("\n");
+        }
+
+        return progress;
     }
 }

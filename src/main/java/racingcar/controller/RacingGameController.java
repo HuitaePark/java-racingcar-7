@@ -32,7 +32,7 @@ public class RacingGameController {
     }
 
     private void displayRacingGameProgress(RacingGame racingGame){
-        getGameProgress(racingGame.run());
+        getGameProgress(racingGame.gameStart());
     }
 
     private void getGameProgress(StringBuilder progressDetail){

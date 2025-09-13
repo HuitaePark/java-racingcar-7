@@ -14,7 +14,7 @@ public class RaceTest {
         assertThatThrownBy(()-> {
             Race race = new Race();
             List<Car> carList = new ArrayList<>();
-            race.raceResult(2,carList);
+            race.getRaceResult(2,carList);
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("차는 두대 이상을 입력해야 게임을 진행할 수 있습니다.");

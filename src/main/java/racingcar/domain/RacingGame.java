@@ -26,7 +26,7 @@ public class RacingGame {
     }
 
     public StringBuilder run() {
-        return race.raceResult(times,carList);
+        return race.getRaceResult(times,carList);
     }
 
     public List<String> selectWinner(){

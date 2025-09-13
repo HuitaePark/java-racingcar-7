@@ -8,13 +8,13 @@ import java.util.List;
 public class Race {
     private final int PROCEEDING = 4;
 
-    public StringBuilder raceResult(int times,List<Car> carList) {
+    public StringBuilder getRaceResult(int times, List<Car> carList) {
         StringBuilder progress = new StringBuilder();
         validateCarListNumber(carList);
 
-        for(int i = 0;i<times;i++){
+        for (int i = 0; i < times; i++) {
             runSingleRound(carList);
-            updateProgress(carList,progress);
+            updateProgress(carList, progress);
             progress.append("\n");
         }
         return progress;
@@ -25,32 +25,33 @@ public class Race {
             tryMove(car);
         }
     }
-    private void updateProgress(List<Car> carList,StringBuilder progress){
-        for(Car car : carList){
-            progress.append(car.getName())
-                    .append(" : ")
-                    .append("-".repeat(car.getTraveled()))
-                    .append("\n");
+        private void updateProgress (List < Car > carList, StringBuilder progress){
+            for (Car car : carList) {
+                progress.append(car.getName())
+                        .append(" : ")
+                        .append("-".repeat(car.getTraveled()))
+                        .append("\n");
+            }
         }
-    }
 
-    private void tryMove(Car car){
-        if(isMoveable(pickRandomNum())) {
-            car.moveForward();
+        private void tryMove (Car car){
+            if (isMoveable(pickRandomNum())) {
+                car.moveForward();
+            }
         }
-    }
 
-    private boolean isMoveable(int randomCount){
-        return randomCount >= PROCEEDING;
-    }
-
-    private int pickRandomNum(){
-        return Randoms.pickNumberInRange(0,9);
-    }
-
-    private void validateCarListNumber(List<Car> carList) {
-        if(carList.size()<=1){
-            throw new IllegalArgumentException(CAR_SIZE_ALONE);
+        private boolean isMoveable ( int randomCount){
+            return randomCount >= PROCEEDING;
         }
-    }
+
+        private int pickRandomNum () {
+            return Randoms.pickNumberInRange(0, 9);
+        }
+
+        private void validateCarListNumber(List<Car> carList) {
+            if (carList.size() <= 1) {
+                throw new IllegalArgumentException(CAR_SIZE_ALONE);
+            }
+        }
 }
+

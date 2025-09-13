@@ -1,7 +1,9 @@
 package racingcar.domain;
 
-import static racingcar.global.exception.ErrorMessage.NAME_CONTAINS_NUMBER;
-import static racingcar.global.exception.ErrorMessage.NAME_LENGTH_LIMIT_OVER;
+import static racingcar.global.util.Validator.validateNameLength;
+import static racingcar.global.util.Validator.validateNameNumber;
+
+
 
 public class Car {
     private final String name;
@@ -9,7 +11,8 @@ public class Car {
     private final int lengthLimit = 5;
 
     public Car(String name) {
-        validate(name);
+        validateNameLength(name,lengthLimit);
+        validateNameNumber(name);
         this.name = name;
         this.position = new Position();
     }
@@ -24,22 +27,5 @@ public class Car {
 
     public String getName() {
         return name;
-    }
-
-    private void validate(String name){
-        validateNameLength(name);
-        validateNameNumber(name);
-    }
-
-    private void validateNameLength(String name){
-        if(name.length()>lengthLimit){
-            throw new IllegalArgumentException(NAME_LENGTH_LIMIT_OVER);
-        }
-    }
-
-    private void validateNameNumber(String name){
-        if(name.matches("-?[1-9]\\d*|0")){
-            throw new IllegalArgumentException(NAME_CONTAINS_NUMBER);
-        }
     }
 }

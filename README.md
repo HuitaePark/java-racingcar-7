@@ -1,1 +1,26 @@
-# java-racingcar-precourse
+## 🗂 미션 - 레이싱게임 기능 목록
+### 📚 기능 목록
+- [x] 게임 시작 기능
+- [x] n대의 자동차를 입력받기
+  - [x] 입력받은 자동차를 쉼표로 구분하기
+    - [x] ⚠️ 자동차의 이름이 5자 이하인지 확인하기
+- [x] 시도할 횟수를 입력받기
+  - [x] '시도할 횟수는 몇회인가요?' 출력하기
+  - [x] 정수 횟수 입력받기
+- [x] 자동차를 전진시키기
+  - [x] 자동차별로 무작위 값을 구하기
+  - [x] 4 이상일 경우 전진시키기
+  - [x] 차수마다 출력하기
+-[x] 게임을 완료한 후 결과 출력하기
+  - [x] 가장 많이 전진한 우승자 찾기
+  - [x] 우승자가 한명일경우 우승자 한명만 출력하기
+  - [x] 우승자가 여러명일 경우 쉼표로 구분하며 출력하기
+
+### ☑️ 체크리스트
+ - [x] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다.
+ - [x] 3항 연산자를 쓰지 않는다.
+ - [x] JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
+ - [x] 함수가 한가지 일만 하도록 만든다.
+ - [x] camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현한다.
+ - [x] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
+ - [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
